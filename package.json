@@ -1,0 +1,23 @@
+{
+  "name": "front-end-testing-example",
+  "version": "0.1.0",
+  "description": "",
+  "main": "countdown.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vjwilson/front-end-testing-examples.git"
+  },
+  "keywords": [],
+  "author": "Van J. Wilson <van.wilson1992@alumni.unc.edu> (https://vanwilson.info)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vjwilson/front-end-testing-examples/issues"
+  },
+  "homepage": "https://github.com/vjwilson/front-end-testing-examples#readme",
+  "dependencies": {
+    "jest": "^23.6.0"
+  }
+}
