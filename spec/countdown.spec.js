@@ -1,9 +1,11 @@
+const timer = require('../lib/timer');
+
 describe('getTimeRemaining function', () => {
   it('should return 0 time if end time is same as current time', () => {
     const stopTime = new Date('2018-07-29T03:24:45');
     const currentTime = new Date('2018-07-29T03:24:45');
 
-    const timeStr = getTimeRemaining(stopTime, currentTime);
+    const timeStr = timer.getTimeRemaining(stopTime, currentTime);
 
     expect(timeStr).toEqual('00:00');
   });
@@ -12,7 +14,7 @@ describe('getTimeRemaining function', () => {
     const stopTime = new Date('2018-07-29T03:24:45');
     const currentTime = new Date('2018-07-29T03:24:12');
 
-    const timeStr = getTimeRemaining(stopTime, currentTime);
+    const timeStr = timer.getTimeRemaining(stopTime, currentTime);
 
     expect(timeStr).toEqual('00:33');
   });
@@ -21,7 +23,7 @@ describe('getTimeRemaining function', () => {
     const stopTime = new Date('2018-07-29T03:24:45');
     const currentTime = new Date('2018-07-29T03:04:36');
 
-    const timeStr = getTimeRemaining(stopTime, currentTime);
+    const timeStr = timer.getTimeRemaining(stopTime, currentTime);
 
     expect(timeStr).toEqual('20:09');
   });
@@ -30,22 +32,8 @@ describe('getTimeRemaining function', () => {
     const stopTime = new Date('2018-07-29T03:24:45');
     const currentTime = new Date('2018-07-29T03:22:46');
 
-    const timeStr = getTimeRemaining(stopTime, currentTime);
+    const timeStr = timer.getTimeRemaining(stopTime, currentTime);
 
     expect(timeStr).toEqual('01:59');
   });
 });
-
-function getTimeRemaining(stopTime, currentTime) {
-  const stopTimestamp = stopTime.getTime();
-  const currentTimestamp = currentTime.getTime();
-  const totalSecondsRemaining = ((stopTimestamp - currentTimestamp) / 1000);
-
-  const minutesRemaining = Math.floor(totalSecondsRemaining / 60);
-  const secondsRemaining = Math.floor(totalSecondsRemaining % 60);
-
-  const formattedMinutes = (`0${minutesRemaining}`).slice(-2);
-  const formattedSeconds = (`0${secondsRemaining}`).slice(-2);
-
-  return `${formattedMinutes}:${formattedSeconds}`;
-}
